@@ -20,11 +20,11 @@ function assert(ok, opts) {
 }
 
 module.exports.true = function (val, msg) {
-	assert(val === true, create(val, true, '===', msg, module.exports.true));
+	assert(val, create(val, true, '===', msg, module.exports.true));
 };
 
 module.exports.false = function (val, msg) {
-	assert(val === false, create(val, false, '===', msg, module.exports.false));
+	assert(!val, create(val, false, '===', msg, module.exports.false));
 };
 
 module.exports.is = function (val, expected, msg) {
