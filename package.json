@@ -1,0 +1,29 @@
+{
+  "name": "claim",
+  "version": "1.0.0",
+  "description": "Tiny assertion library",
+  "license": "MIT",
+  "repository": "kevva/claim",
+  "author": {
+    "name": "Kevin Mårtensson",
+    "email": "kevinmartensson@gmail.com",
+    "url": "https://github.com/kevva"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+  ],
+  "dependencies": {
+    "deep-equal": "^1.0.0"
+  },
+  "devDependencies": {
+    "ava": "0.0.4"
+  }
+}
