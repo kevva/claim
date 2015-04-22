@@ -43,6 +43,10 @@ module.exports.notSame = function (val, expected, msg) {
 	assert(!deepEqual(val, expected), create(val, expected, '!==', msg, module.exports.notSame));
 };
 
+module.exports.regexTest = function (regex, contents, msg) {
+	assert(regex.test(contents), create(regex, contents, '===', msg, module.exports.regexTest));
+};
+
 module.exports.error = function (err, msg) {
 	assert(!err, create(err, 'Error', '!==', msg, module.exports.error));
 };

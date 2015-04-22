@@ -23,6 +23,7 @@ claim.same({a: 'a'}, {a: 'a'});
 claim.same(['a', 'b'], ['a', 'b']);
 claim.notSame({a: 'a'}, {a: 'b'});
 claim.notSame(['a', 'b'], ['c', 'd']);
+claim.regexTest(/^abc$/, 'abc');
 ```
 
 
@@ -149,6 +150,30 @@ Value to be tested.
 
 *Required*  
 Type: `mixed`
+
+Value to be tested against.
+
+#### message
+
+Type: `string`
+
+Message to be shown upon failure.
+
+### .regexTest(regex, contents, message)
+
+Assert that `regex` matches `contents` with an optional description message.
+
+#### regex
+
+*Required*  
+Type: `regex`
+
+Value to be tested.
+
+#### contents
+
+*Required*  
+Type: `string`
 
 Value to be tested against.
 

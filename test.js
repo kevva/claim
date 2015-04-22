@@ -40,6 +40,11 @@ test('should not be an error', function (t) {
 	t.end();
 });
 
+test('should match a regex', function (t) {
+	claim.regexTest(/^abc$/, 'abc');
+	t.end();
+});
+
 test('should be an error', function (t) {
 	try {
 		claim.error(new Error());
