@@ -29,6 +29,10 @@ claim.regexTest(/^abc$/, 'abc');
 
 ## API
 
+### .pass(message)
+
+Passing assertion with an optional description `message`.
+
 ### .true(value, message)
 
 Assert that `value` is `true` with an optional description message.
