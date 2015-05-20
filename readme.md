@@ -163,6 +163,46 @@ Type: `string`
 
 Message to be shown upon failure.
 
+### .throws(function, error, message)
+
+Assert that `function` throws an `error` with an optional description message.
+
+#### function
+
+*Required*  
+Type: `function`
+
+Function to be tested.
+
+#### error
+
+Type: `function`, `regex` or `constructor`
+
+Error to be tested against.
+
+#### message
+
+Type: `string`
+
+Message to be shown upon failure.
+
+### .doesNotThrow(function, message)
+
+Assert that `function` doesn't throw an `error` with an optional description message.
+
+#### function
+
+*Required*  
+Type: `function`
+
+Function to be tested.
+
+#### message
+
+Type: `string`
+
+Message to be shown upon failure.
+
 ### .regexTest(regex, contents, message)
 
 Assert that `regex` matches `contents` with an optional description message.

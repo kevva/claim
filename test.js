@@ -44,6 +44,22 @@ test('should not be same', function (t) {
 	t.end();
 });
 
+test('should throw an error', function (t) {
+	claim.throws(function () {
+		claim.is('foo', 'bar');
+	});
+
+	t.end();
+});
+
+test('should not throw an error', function (t) {
+	claim.doesNotThrow(function () {
+		claim.is('foo', 'bar');
+	});
+
+	t.end();
+});
+
 test('should not be an error', function (t) {
 	claim.error(false);
 	t.end();

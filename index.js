@@ -64,6 +64,22 @@ claim.notSame = function (val, expected, msg) {
 	}
 };
 
+claim.throws = function (fn, err, msg) {
+	try {
+		assert.throws(fn, err, msg);
+	} catch (err) {
+		test(false, create(err.actual, err.expected, err.operator, err.message, claim.throws));
+	}
+};
+
+claim.doesNotThrow = function (fn, msg) {
+	try {
+		assert.doesNotThrow(fn, msg);
+	} catch (err) {
+		test(false, create(err.actual, err.expected, err.operator, err.message, claim.doesNotThrow));
+	}
+};
+
 claim.regexTest = function (regex, contents, msg) {
 	test(regex.test(contents), create(regex, contents, '===', msg, claim.regexTest));
 };
