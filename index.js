@@ -32,7 +32,8 @@ claim.pass = function (msg) {
 	test(true, create(true, true, 'pass', msg, claim.pass));
 };
 
-claim.true = function (val, msg) {
+// claim.assert is only here for legacy `ava` usage and might be removed in the future
+claim.true = claim.assert = function (val, msg) {
 	test(val, create(val, true, '===', msg, claim.true));
 };
 
