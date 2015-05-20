@@ -1,7 +1,7 @@
 'use strict';
-
 var AssertionError = require('assert').AssertionError;
 var deepEqual = require('deep-equal');
+var claim = module.exports;
 
 function create(val, expected, operator, msg, fn) {
 	return {
@@ -19,34 +19,34 @@ function assert(ok, opts) {
 	}
 }
 
-module.exports.true = function (val, msg) {
-	assert(val, create(val, true, '===', msg, module.exports.true));
+claim.true = function (val, msg) {
+	assert(val, create(val, true, '===', msg, claim.true));
 };
 
-module.exports.false = function (val, msg) {
-	assert(!val, create(val, false, '===', msg, module.exports.false));
+claim.false = function (val, msg) {
+	assert(!val, create(val, false, '===', msg, claim.false));
 };
 
-module.exports.is = function (val, expected, msg) {
-	assert(val === expected, create(val, expected, '===', msg, module.exports.is));
+claim.is = function (val, expected, msg) {
+	assert(val === expected, create(val, expected, '===', msg, claim.is));
 };
 
-module.exports.not = function (val, expected, msg) {
-	assert(val !== expected, create(val, expected, '!==', msg, module.exports.not));
+claim.not = function (val, expected, msg) {
+	assert(val !== expected, create(val, expected, '!==', msg, claim.not));
 };
 
-module.exports.same = function (val, expected, msg) {
-	assert(deepEqual(val, expected), create(val, expected, '===', msg, module.exports.same));
+claim.same = function (val, expected, msg) {
+	assert(deepEqual(val, expected), create(val, expected, '===', msg, claim.same));
 };
 
-module.exports.notSame = function (val, expected, msg) {
-	assert(!deepEqual(val, expected), create(val, expected, '!==', msg, module.exports.notSame));
+claim.notSame = function (val, expected, msg) {
+	assert(!deepEqual(val, expected), create(val, expected, '!==', msg, claim.notSame));
 };
 
-module.exports.regexTest = function (regex, contents, msg) {
-	assert(regex.test(contents), create(regex, contents, '===', msg, module.exports.regexTest));
+claim.regexTest = function (regex, contents, msg) {
+	assert(regex.test(contents), create(regex, contents, '===', msg, claim.regexTest));
 };
 
-module.exports.error = function (err, msg) {
-	assert(!err, create(err, 'Error', '!==', msg, module.exports.error));
+claim.error = function (err, msg) {
+	assert(!err, create(err, 'Error', '!==', msg, claim.error));
 };
