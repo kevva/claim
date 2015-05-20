@@ -2,6 +2,16 @@
 var test = require('ava');
 var claim = require('./');
 
+test('.pass()', function (t) {
+	t.plan(1);
+
+	claim.onAssert(function () {
+		t.assert(true);
+	});
+
+	claim.pass();
+});
+
 test('should be true', function (t) {
 	claim.true(true);
 	t.end();
@@ -60,5 +70,5 @@ test('.onAssert()', function (t) {
 		t.end();
 	});
 
-	claim.true(false);
+	claim.pass();
 });

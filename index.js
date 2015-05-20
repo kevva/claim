@@ -28,6 +28,10 @@ claim.onAssert = function (cb) {
 	listeners.push(cb);
 };
 
+claim.pass = function (msg) {
+	assert(true, create(true, true, 'pass', msg, claim.pass));
+};
+
 claim.true = function (val, msg) {
 	assert(val, create(val, true, '===', msg, claim.true));
 };
