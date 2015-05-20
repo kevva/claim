@@ -53,3 +53,12 @@ test('should be an error', function (t) {
 
 	t.end();
 });
+
+test('.onAssert()', function (t) {
+	claim.onAssert(function () {
+		t.assert(true);
+		t.end();
+	});
+
+	claim.true(false);
+});

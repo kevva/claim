@@ -2,6 +2,7 @@
 var AssertionError = require('assert').AssertionError;
 var deepEqual = require('deep-equal');
 var claim = module.exports;
+var listeners = [];
 
 function create(val, expected, operator, msg, fn) {
 	return {
@@ -14,10 +15,18 @@ function create(val, expected, operator, msg, fn) {
 }
 
 function assert(ok, opts) {
+	listeners.forEach(function (el) {
+		el();
+	});
+
 	if (!ok) {
 		throw new AssertionError(opts);
 	}
 }
+
+claim.onAssert = function (cb) {
+	listeners.push(cb);
+};
 
 claim.true = function (val, msg) {
 	assert(val, create(val, true, '===', msg, claim.true));
