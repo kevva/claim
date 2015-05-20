@@ -3,13 +3,8 @@ var test = require('ava');
 var claim = require('./');
 
 test('.pass()', function (t) {
-	t.plan(1);
-
-	claim.onAssert(function () {
-		t.assert(true);
-	});
-
 	claim.pass();
+	t.end();
 });
 
 test('should be true', function (t) {
@@ -78,13 +73,4 @@ test('should be an error', function (t) {
 	}
 
 	t.end();
-});
-
-test('.onAssert()', function (t) {
-	claim.onAssert(function () {
-		t.assert(true);
-		t.end();
-	});
-
-	claim.pass();
 });

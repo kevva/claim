@@ -2,7 +2,6 @@
 var assert = require('assert');
 var AssertionError = assert.AssertionError;
 var claim = module.exports;
-var listeners = [];
 
 function create(val, expected, operator, msg, fn) {
 	return {
@@ -15,18 +14,10 @@ function create(val, expected, operator, msg, fn) {
 }
 
 function test(ok, opts) {
-	listeners.forEach(function (el) {
-		el();
-	});
-
 	if (!ok) {
 		throw new AssertionError(opts);
 	}
 }
-
-claim.onAssert = function (cb) {
-	listeners.push(cb);
-};
 
 claim.pass = function (msg) {
 	test(true, create(true, true, 'pass', msg, claim.pass));
