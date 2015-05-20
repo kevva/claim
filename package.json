@@ -25,9 +25,6 @@
     "test",
     "testing"
   ],
-  "dependencies": {
-    "deep-equal": "^1.0.0"
-  },
   "devDependencies": {
     "ava": "0.0.4"
   }
