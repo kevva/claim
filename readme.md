@@ -31,6 +31,10 @@ claim.regexTest(/^abc$/, 'abc');
 
 ### .pass(message)
 
+#### message
+
+Type: `string`
+
 Passing assertion with an optional description `message`.
 
 ### .true(value, message)
