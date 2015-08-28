@@ -66,6 +66,7 @@ test('should not throw an error', function (t) {
 });
 
 test('should not be an error', function (t) {
+	claim.error(false);
 	claim.error(null);
 	t.end();
 });
