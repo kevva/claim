@@ -1,9 +1,19 @@
 'use strict';
+var assert = require('assert');
 var test = require('ava');
 var claim = require('./');
 
 test('.pass()', function (t) {
 	claim.pass();
+	t.end();
+});
+
+test('.fail()', function (t) {
+	t.plan(1)
+	assert.throws(function () {
+		t.assert(true);
+		claim.fail('foo bar');
+	}, /foo bar/);
 	t.end();
 });
 
@@ -56,7 +66,7 @@ test('should not throw an error', function (t) {
 });
 
 test('should not be an error', function (t) {
-	claim.error(false);
+	claim.error(null);
 	t.end();
 });
 
