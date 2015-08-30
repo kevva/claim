@@ -233,7 +233,7 @@ Message to be shown upon failure.
 
 ### .error(error, message)
 
-Assert that `error` is `false` with an optional description message.
+Assert that `error` is falsy with an optional description message.
 
 #### error
 
