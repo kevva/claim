@@ -7,6 +7,14 @@ test('.pass()', function (t) {
 	t.end();
 });
 
+test('.fail()', function (t) {
+	claim.throws(function () {
+		claim.fail();
+	});
+
+	t.end();
+});
+
 test('should be true', function (t) {
 	claim.true(true);
 	t.end();

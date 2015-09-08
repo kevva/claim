@@ -37,6 +37,14 @@ Type: `string`
 
 Passing assertion with an optional description `message`.
 
+### .fail(message)
+
+#### message
+
+Type: `string`
+
+Failing assertion with an optional description `message`.
+
 ### .true(value, message)
 
 Assert that `value` is `true` with an optional description message.
