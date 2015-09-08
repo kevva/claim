@@ -29,7 +29,7 @@ claim.regexTest(/^abc$/, 'abc');
 
 ## API
 
-### .pass(message)
+### .pass([message])
 
 #### message
 
@@ -37,7 +37,7 @@ Type: `string`
 
 Passing assertion with an optional description `message`.
 
-### .fail(message)
+### .fail([message])
 
 #### message
 
@@ -45,7 +45,7 @@ Type: `string`
 
 Failing assertion with an optional description `message`.
 
-### .true(value, message)
+### .true(value, [message])
 
 Assert that `value` is `true` with an optional description message.
 
@@ -62,7 +62,7 @@ Type: `string`
 
 Message to be shown upon failure.
 
-### .false(value, message)
+### .false(value, [message])
 
 Assert that `value` is `false` with an optional description message.
 
@@ -79,7 +79,7 @@ Type: `string`
 
 Message to be shown upon failure.
 
-### .is(value, expected, message)
+### .is(value, expected, [message])
 
 Assert that `value` is equal to `expected` with an optional description message.
 
@@ -103,7 +103,7 @@ Type: `string`
 
 Message to be shown upon failure.
 
-### .not(value, expected, message)
+### .not(value, expected, [message])
 
 Assert that `value` is not equal to `expected` with an optional description message.
 
@@ -127,7 +127,7 @@ Type: `string`
 
 Message to be shown upon failure.
 
-### .same(value, expected, message)
+### .same(value, expected, [message])
 
 Assert that `value` is deep equal to `expected` with an optional description message.
 
@@ -151,7 +151,7 @@ Type: `string`
 
 Message to be shown upon failure.
 
-### .notSame(value, expected, message)
+### .notSame(value, expected, [message])
 
 Assert that `value` is not deep equal to `expected` with an optional description message.
 
@@ -175,7 +175,7 @@ Type: `string`
 
 Message to be shown upon failure.
 
-### .throws(function, error, message)
+### .throws(function, error, [message])
 
 Assert that `function` throws an `error` with an optional description message.
 
@@ -198,7 +198,7 @@ Type: `string`
 
 Message to be shown upon failure.
 
-### .doesNotThrow(function, message)
+### .doesNotThrow(function, [message])
 
 Assert that `function` doesn't throw an `error` with an optional description message.
 
@@ -215,7 +215,7 @@ Type: `string`
 
 Message to be shown upon failure.
 
-### .regexTest(regex, contents, message)
+### .regexTest(regex, contents, [message])
 
 Assert that `regex` matches `contents` with an optional description message.
 
@@ -239,7 +239,7 @@ Type: `string`
 
 Message to be shown upon failure.
 
-### .error(error, message)
+### .error(error, [message])
 
 Assert that `error` is falsy with an optional description message.
 
