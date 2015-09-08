@@ -9,6 +9,13 @@
     "email": "kevinmartensson@gmail.com",
     "url": "github.com/kevva"
   },
+  "maintainers": [
+    {
+      "name": "Sindre Sorhus",
+      "email": "sindresorhus@gmail.com",
+      "url": "sindresorhus.com"
+    }
+  ],
   "engines": {
     "node": ">=0.10.0"
   },
@@ -23,7 +30,8 @@
     "assertion",
     "error",
     "test",
-    "testing"
+    "testing",
+    "ava"
   ],
   "devDependencies": {
     "ava": "*",
