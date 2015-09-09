@@ -19,10 +19,8 @@ claim.true(true);
 claim.false(false);
 claim.is('foo', 'foo');
 claim.not('foo', 'bar');
-claim.same({a: 'a'}, {a: 'a'});
 claim.same(['a', 'b'], ['a', 'b']);
 claim.notSame({a: 'a'}, {a: 'b'});
-claim.notSame(['a', 'b'], ['c', 'd']);
 claim.regexTest(/^abc$/, 'abc');
 ```
 
@@ -31,230 +29,53 @@ claim.regexTest(/^abc$/, 'abc');
 
 ### .pass([message])
 
-#### message
-
-Type: `string`
-
-Passing assertion with an optional description `message`.
+Passing assertion.
 
 ### .fail([message])
 
-#### message
-
-Type: `string`
-
-Failing assertion with an optional description `message`.
+Failing assertion.
 
 ### .true(value, [message])
 
-Assert that `value` is `true` with an optional description message.
-
-#### value
-
-*Required*  
-Type: `boolean`
-
-Value to be tested.
-
-#### message
-
-Type: `string`
-
-Message to be shown upon failure.
+Assert that `value` is `true`.
 
 ### .false(value, [message])
 
-Assert that `value` is `false` with an optional description message.
-
-#### value
-
-*Required*  
-Type: `boolean`
-
-Value to be tested.
-
-#### message
-
-Type: `string`
-
-Message to be shown upon failure.
+Assert that `value` is `false`.
 
 ### .is(value, expected, [message])
 
-Assert that `value` is equal to `expected` with an optional description message.
-
-#### value
-
-*Required*  
-Type: `mixed`
-
-Value to be tested.
-
-#### expected
-
-*Required*  
-Type: `mixed`
-
-Value to be tested against.
-
-#### message
-
-Type: `string`
-
-Message to be shown upon failure.
+Assert that `value` is equal to `expected`.
 
 ### .not(value, expected, [message])
 
-Assert that `value` is not equal to `expected` with an optional description message.
-
-#### value
-
-*Required*  
-Type: `mixed`
-
-Value to be tested.
-
-#### expected
-
-*Required*  
-Type: `mixed`
-
-Value to be tested against.
-
-#### message
-
-Type: `string`
-
-Message to be shown upon failure.
+Assert that `value` is not equal to `expected`.
 
 ### .same(value, expected, [message])
 
-Assert that `value` is deep equal to `expected` with an optional description message.
-
-#### value
-
-*Required*  
-Type: `mixed`
-
-Value to be tested.
-
-#### expected
-
-*Required*  
-Type: `mixed`
-
-Value to be tested against.
-
-#### message
-
-Type: `string`
-
-Message to be shown upon failure.
+Assert that `value` is deep equal to `expected`.
 
 ### .notSame(value, expected, [message])
 
-Assert that `value` is not deep equal to `expected` with an optional description message.
-
-#### value
-
-*Required*  
-Type: `mixed`
-
-Value to be tested.
-
-#### expected
-
-*Required*  
-Type: `mixed`
-
-Value to be tested against.
-
-#### message
-
-Type: `string`
-
-Message to be shown upon failure.
+Assert that `value` is not deep equal to `expected`.
 
 ### .throws(function, error, [message])
 
-Assert that `function` throws an `error` with an optional description message.
+Assert that `function` throws an error.
 
-#### function
-
-*Required*  
-Type: `function`
-
-Function to be tested.
-
-#### error
-
-Type: `function`, `regex` or `constructor`
-
-Error to be tested against.
-
-#### message
-
-Type: `string`
-
-Message to be shown upon failure.
+`error` can be a constructor, regex or validation function.
 
 ### .doesNotThrow(function, [message])
 
-Assert that `function` doesn't throw an `error` with an optional description message.
-
-#### function
-
-*Required*  
-Type: `function`
-
-Function to be tested.
-
-#### message
-
-Type: `string`
-
-Message to be shown upon failure.
+Assert that `function` doesn't throw an `error`.
 
 ### .regexTest(regex, contents, [message])
 
-Assert that `regex` matches `contents` with an optional description message.
-
-#### regex
-
-*Required*  
-Type: `regex`
-
-Value to be tested.
-
-#### contents
-
-*Required*  
-Type: `string`
-
-Value to be tested against.
-
-#### message
-
-Type: `string`
-
-Message to be shown upon failure.
+Assert that `regex` matches `contents`.
 
 ### .ifError(error, [message])
 
-Assert that `error` is falsy with an optional description message.
-
-#### error
-
-*Required*  
-Type: `mixed`
-
-Value to be tested.
-
-#### message
-
-Type: `string`
-
-Message to be shown upon failure.
+Assert that `error` is falsy.
 
 
 ## License
