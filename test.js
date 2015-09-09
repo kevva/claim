@@ -47,12 +47,50 @@ test('.notOk()', function (t) {
 });
 
 test('.true()', function (t) {
-	claim.true(true);
+	claim.throws(function () {
+		claim.true(1);
+	});
+
+	claim.throws(function () {
+		claim.true(0);
+	});
+
+	claim.throws(function () {
+		claim.true(false);
+	});
+
+	claim.throws(function () {
+		claim.true('foo');
+	});
+
+	claim.doesNotThrow(function () {
+		claim.true(true);
+	});
+
 	t.end();
 });
 
 test('.false()', function (t) {
-	claim.false(false);
+	claim.throws(function () {
+		claim.false(0);
+	});
+
+	claim.throws(function () {
+		claim.false(1);
+	});
+
+	claim.throws(function () {
+		claim.false(true);
+	});
+
+	claim.throws(function () {
+		claim.false('foo');
+	});
+
+	claim.doesNotThrow(function () {
+		claim.false(false);
+	});
+
 	t.end();
 });
 

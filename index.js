@@ -36,11 +36,11 @@ claim.notOk = function (val, msg) {
 };
 
 claim.true = function (val, msg) {
-	test(val, create(val, true, '===', msg, claim.true));
+	test(val === true, create(val, true, '===', msg, claim.true));
 };
 
 claim.false = function (val, msg) {
-	test(!val, create(val, false, '===', msg, claim.false));
+	test(val === false, create(val, false, '===', msg, claim.false));
 };
 
 claim.is = function (val, expected, msg) {
