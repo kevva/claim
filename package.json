@@ -20,7 +20,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "xo && ava"
+    "test": "xo && node test.js | tap-dot"
   },
   "files": [
     "index.js"
@@ -34,7 +34,8 @@
     "ava"
   ],
   "devDependencies": {
-    "ava": "*",
+    "tap-dot": "^1.0.0",
+    "tape": "^4.2.0",
     "xo": "*"
   }
 }

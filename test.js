@@ -1,9 +1,9 @@
 'use strict';
-var test = require('ava');
+var test = require('tape');
 var claim = require('./');
 
 test('.pass()', function (t) {
-	claim.doesNotThrow(function () {
+	t.doesNotThrow(function () {
 		claim.pass();
 	});
 
@@ -11,7 +11,7 @@ test('.pass()', function (t) {
 });
 
 test('.fail()', function (t) {
-	claim.throws(function () {
+	t.throws(function () {
 		claim.fail();
 	});
 
@@ -19,12 +19,12 @@ test('.fail()', function (t) {
 });
 
 test('.ok()', function (t) {
-	claim.throws(function () {
+	t.throws(function () {
 		claim.ok(0);
 		claim.ok(false);
 	});
 
-	claim.doesNotThrow(function () {
+	t.doesNotThrow(function () {
 		claim.ok(1);
 		claim.ok(true);
 	});
@@ -33,12 +33,12 @@ test('.ok()', function (t) {
 });
 
 test('.notOk()', function (t) {
-	claim.throws(function () {
+	t.throws(function () {
 		claim.notOk(1);
 		claim.notOk(true);
 	});
 
-	claim.doesNotThrow(function () {
+	t.doesNotThrow(function () {
 		claim.notOk(0);
 		claim.notOk(false);
 	});
@@ -47,23 +47,23 @@ test('.notOk()', function (t) {
 });
 
 test('.true()', function (t) {
-	claim.throws(function () {
+	t.throws(function () {
 		claim.true(1);
 	});
 
-	claim.throws(function () {
+	t.throws(function () {
 		claim.true(0);
 	});
 
-	claim.throws(function () {
+	t.throws(function () {
 		claim.true(false);
 	});
 
-	claim.throws(function () {
+	t.throws(function () {
 		claim.true('foo');
 	});
 
-	claim.doesNotThrow(function () {
+	t.doesNotThrow(function () {
 		claim.true(true);
 	});
 
@@ -71,23 +71,23 @@ test('.true()', function (t) {
 });
 
 test('.false()', function (t) {
-	claim.throws(function () {
+	t.throws(function () {
 		claim.false(0);
 	});
 
-	claim.throws(function () {
+	t.throws(function () {
 		claim.false(1);
 	});
 
-	claim.throws(function () {
+	t.throws(function () {
 		claim.false(true);
 	});
 
-	claim.throws(function () {
+	t.throws(function () {
 		claim.false('foo');
 	});
 
-	claim.doesNotThrow(function () {
+	t.doesNotThrow(function () {
 		claim.false(false);
 	});
 
@@ -95,51 +95,116 @@ test('.false()', function (t) {
 });
 
 test('.is()', function (t) {
-	claim.is('foo', 'foo');
-	t.end();
-});
+	t.doesNotThrow(function () {
+		claim.is('foo', 'foo');
+	});
 
-test('.not()', function (t) {
-	claim.not('foo', 'bar');
-	t.end();
-});
-
-test('.same()', function (t) {
-	claim.same({a: 'a'}, {a: 'a'});
-	claim.same(['a', 'b'], ['a', 'b']);
-	t.end();
-});
-
-test('.notSame()', function (t) {
-	claim.notSame({a: 'a'}, {a: 'b'});
-	claim.notSame(['a', 'b'], ['c', 'd']);
-	t.end();
-});
-
-test('.throws()', function (t) {
-	claim.throws(function () {
+	t.throws(function () {
 		claim.is('foo', 'bar');
 	});
 
 	t.end();
 });
 
+test('.not()', function (t) {
+	t.doesNotThrow(function () {
+		claim.not('foo', 'bar');
+	});
+
+	t.throws(function () {
+		claim.not('foo', 'foo');
+	});
+
+	t.end();
+});
+
+test('.same()', function (t) {
+	t.doesNotThrow(function () {
+		claim.same({a: 'a'}, {a: 'a'});
+	});
+
+	t.doesNotThrow(function () {
+		claim.same(['a', 'b'], ['a', 'b']);
+	});
+
+	t.throws(function () {
+		claim.same({a: 'a'}, {a: 'b'});
+	});
+
+	t.throws(function () {
+		claim.same(['a', 'b'], ['a', 'a']);
+	});
+
+	t.end();
+});
+
+test('.notSame()', function (t) {
+	t.doesNotThrow(function () {
+		claim.notSame({a: 'a'}, {a: 'b'});
+	});
+
+	t.doesNotThrow(function () {
+		claim.notSame(['a', 'b'], ['c', 'd']);
+	});
+
+	t.throws(function () {
+		claim.notSame({a: 'a'}, {a: 'a'});
+	});
+
+	t.throws(function () {
+		claim.notSame(['a', 'b'], ['a', 'b']);
+	});
+
+	t.end();
+});
+
+test('.throws()', function (t) {
+	t.throws(function () {
+		claim.throws(function () {});
+	});
+
+	t.doesNotThrow(function () {
+		claim.throws(function () {
+			throw new Error('foo');
+		});
+	});
+
+	t.end();
+});
+
 test('.doesNotThrow()', function (t) {
-	claim.doesNotThrow(function () {
-		claim.is('foo', 'foo');
+	t.doesNotThrow(function () {
+		claim.doesNotThrow(function () {});
+	});
+
+	t.throws(function () {
+		claim.doesNotThrow(function () {
+			throw new Error('foo');
+		});
 	});
 
 	t.end();
 });
 
 test('.regexTest()', function (t) {
-	claim.regexTest(/^abc$/, 'abc');
+	t.doesNotThrow(function () {
+		claim.regexTest(/^abc$/, 'abc');
+	});
+
+	t.throws(function () {
+		claim.regexTest(/^abc$/, 'foo');
+	});
+
 	t.end();
 });
 
 test('.ifError()', function (t) {
-	claim.throws(function () {
+	t.throws(function () {
 		claim.ifError(new Error());
+	});
+
+	t.doesNotThrow(function () {
+		claim.ifError(null);
 	});
 
 	t.end();
