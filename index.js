@@ -27,8 +27,15 @@ claim.fail = function (msg) {
 	test(false, create(false, false, 'fail', msg, claim.fail));
 };
 
-// claim.assert is only here for legacy `ava` usage and might be removed in the future
-claim.true = claim.assert = function (val, msg) {
+claim.ok = claim.assert = function (val, msg) {
+	test(val, create(val, true, '==', msg, claim.ok));
+};
+
+claim.notOk = function (val, msg) {
+	test(!val, create(val, false, '==', msg, claim.notOk));
+};
+
+claim.true = function (val, msg) {
 	test(val, create(val, true, '===', msg, claim.true));
 };
 

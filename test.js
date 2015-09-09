@@ -15,6 +15,34 @@ test('.fail()', function (t) {
 	t.end();
 });
 
+test('.ok()', function (t) {
+	claim.throws(function () {
+		claim.ok(0);
+		claim.ok(false);
+	});
+
+	claim.doesNotThrow(function () {
+		claim.ok(1);
+		claim.ok(true);
+	});
+
+	t.end();
+});
+
+test('.notOk()', function (t) {
+	claim.throws(function () {
+		claim.notOk(1);
+		claim.notOk(true);
+	});
+
+	claim.doesNotThrow(function () {
+		claim.notOk(0);
+		claim.notOk(false);
+	});
+
+	t.end();
+});
+
 test('should be true', function (t) {
 	claim.true(true);
 	t.end();

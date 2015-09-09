@@ -35,6 +35,14 @@ Passing assertion.
 
 Failing assertion.
 
+### .ok(value, [message])
+
+Assert that `value` is truthy.
+
+### .notOk(value, [message])
+
+Assert that `value` is falsy.
+
 ### .true(value, [message])
 
 Assert that `value` is `true`.
