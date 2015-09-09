@@ -75,7 +75,7 @@ test('should match a regex', function (t) {
 
 test('should be an error', function (t) {
 	try {
-		claim.error(new Error());
+		claim.ifError(new Error());
 	} catch (err) {
 		t.assert(err);
 	}

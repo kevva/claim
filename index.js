@@ -80,6 +80,6 @@ claim.regexTest = function (regex, contents, msg) {
 	test(regex.test(contents), create(regex, contents, '===', msg, claim.regexTest));
 };
 
-claim.error = function (err, msg) {
-	test(!err, create(err, 'Error', '!==', msg, claim.error));
+claim.ifError = claim.error = function (err, msg) {
+	test(!err, create(err, 'Error', '!==', msg, claim.ifError));
 };

@@ -239,7 +239,7 @@ Type: `string`
 
 Message to be shown upon failure.
 
-### .error(error, [message])
+### .ifError(error, [message])
 
 Assert that `error` is falsy with an optional description message.
 
