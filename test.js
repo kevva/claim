@@ -3,7 +3,10 @@ var test = require('ava');
 var claim = require('./');
 
 test('.pass()', function (t) {
-	claim.pass();
+	claim.doesNotThrow(function () {
+		claim.pass();
+	});
+
 	t.end();
 });
 
